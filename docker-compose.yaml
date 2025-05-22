@@ -1,13 +1,13 @@
 services:
-  ollama:
-    image: ollama/ollama
-    container_name: ollama
-    ports:
-      - "11434:11434"
-    networks:
-      - ollama-network
-    volumes:
-      - ollama-data:/root/.ollama
+#  ollama:
+#    image: ollama/ollama
+#    container_name: ollama
+#    ports:
+#      - "11434:11434"
+#    networks:
+#      - ollama-network
+#    volumes:
+#      - ollama-data:/root/.ollama
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -15,16 +15,10 @@ services:
     ports:
       - "8181:8080"
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-    networks:
-      - ollama-network
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
     volumes:
       - open-webui-data:/app/backend/data
 
-networks:
-  ollama-network:
-    driver: bridge
-
 volumes:
-  ollama-data:
+  # ollama-data:
   open-webui-data:

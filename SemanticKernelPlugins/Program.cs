@@ -1,7 +1,20 @@
-var builder = WebApplication.CreateBuilder(args);
+using OllamaApiFacade.Extensions;
+
+var builder = WebApplication
+                    .CreateBuilder(args)
+                    .ConfigureAsLocalOllamaApi();
+
+builder.Services.AddKernel().AddLmStudio();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+app.MapPostApiChat(async (chatRequest, chatCompletionService, httpContext, kernel) =>
+{
+    var chatHistory = chatRequest.ToChatHistory();
 
-await app.RunAsync();
+    await chatCompletionService
+        .GetStreamingChatMessageContentsAsync(chatHistory)
+        .StreamToResponseAsync(httpContext.Response);
+});
+
+app.Run();
