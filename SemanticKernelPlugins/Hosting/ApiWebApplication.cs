@@ -8,6 +8,8 @@ public static class ApiWebApplication
 
         builder.Services.AddHttpContextAccessor();
 
+        builder.Configuration.AddEnvironmentVariables();
+
         builder.WebHost.UseUrls(string.Empty);
         builder.WebHost.UseKestrel(serverOptions =>
         {
