@@ -13,7 +13,7 @@ This project demonstrates how to use Semantic Kernel with local Large Language M
 
 2. **Configure LM Studio**
     - Open LM Studio
-    - Browse and download a model
+    - Browse and download a model (fe. `qwen2.5-7b-instruct-1m`)
     - Select the model
     - Go to the "Developer" tab
     - Click "Start Server" to launch the OpenAI-compatible API on port 1234
