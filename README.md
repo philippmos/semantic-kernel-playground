@@ -1,4 +1,4 @@
-# semantickernel-playground
+# semantic-kernel-playground
 
 ## Local LLM Setup with LM Studio
 
