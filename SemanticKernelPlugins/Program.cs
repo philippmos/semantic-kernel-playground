@@ -4,15 +4,23 @@ using OllamaApiFacade.Extensions;
 using SemanticKernelPlugins.Plugins;
 
 var builder = WebApplication
-                    .CreateBuilder(args)
-                    .ConfigureAsLocalOllamaApi();
+                    .CreateBuilder(args);
+
+builder.Services.AddHttpContextAccessor();
+
+builder.WebHost.UseUrls("");
+builder.WebHost.UseKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(11434);
+});
 
 builder.Services
     .AddKernel()
-    .AddLmStudio()
+    .AddLmStudio(endpoint: builder.Configuration["LMStudioUrl"] ?? throw new Exception("LMStudioUrl missing"))
     .Plugins.AddFromType<TimeInformationPlugin>();
 
 var app = builder.Build();
+
 
 app.MapPostApiChat(async (chatRequest, chatCompletionService, httpContext, kernel) =>
 {

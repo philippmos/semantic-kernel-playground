@@ -1,16 +1,13 @@
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS builder
+ARG informationalversion=unpublished
+
+COPY . SemanticKernelPlugins/
+
+RUN dotnet publish SemanticKernelPlugins -c Release -p:InformationalVersion=${informationalversion} -o /app 
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+
 WORKDIR /app
+COPY --from=builder app/ .
 EXPOSE 11434
-ENV ASPNETCORE_HTTP_PORTS=11434
-
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /src
-COPY ["SemanticKernelPlugins.csproj", "."]
-RUN dotnet restore "SemanticKernelPlugins.csproj"
-COPY . .
-RUN dotnet publish "SemanticKernelPlugins.csproj" -c Release -o /app/publish --no-restore
-
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "SemanticKernelPlugins.dll"]

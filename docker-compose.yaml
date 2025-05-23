@@ -29,6 +29,7 @@ services:
 
 
   service-db:
+    container_name: service-db
     image: postgres:16
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
