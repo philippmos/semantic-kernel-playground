@@ -1,23 +1,13 @@
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using OllamaApiFacade.Extensions;
-using SemanticKernelPlugins.Plugins;
+using SemanticKernelPlugins;
+using SemanticKernelPlugins.Hosting;
 
-var builder = WebApplication
+var builder = ApiWebApplication
                     .CreateBuilder(args);
 
-builder.Services.AddHttpContextAccessor();
-
-builder.WebHost.UseUrls("");
-builder.WebHost.UseKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(11434);
-});
-
-builder.Services
-    .AddKernel()
-    .AddLmStudio(endpoint: builder.Configuration["LMStudioUrl"] ?? throw new Exception("LMStudioUrl missing"))
-    .Plugins.AddFromType<TimeInformationPlugin>();
+builder.Services.SetupKernel(builder.Configuration);
 
 var app = builder.Build();
 
