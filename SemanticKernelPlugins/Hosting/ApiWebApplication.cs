@@ -8,6 +8,8 @@ public static class ApiWebApplication
 
         builder.Services.AddHttpContextAccessor();
 
+        builder.Services.AddServices();
+
         builder.Services.SetupKernel(builder.Configuration, builder.Environment);
 
         builder.Configuration.AddEnvironmentVariables();

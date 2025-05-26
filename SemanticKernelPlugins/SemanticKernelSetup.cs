@@ -26,7 +26,9 @@ public static class SemanticKernelSetup
 
     public static IKernelBuilder AddPlugins(this IKernelBuilder builder)
     {
-        builder.Plugins.AddFromType<TimeInformationPlugin>();
+        builder.Plugins
+            .AddFromType<TimeInformationPlugin>()
+            .AddFromType<CookingRecipePlugin>();
 
         return builder;
     }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using OllamaApiFacade.Extensions;
+using SemanticKernelPlugins.Extensions;
 
 namespace SemanticKernelPlugins.Endpoints;
 
@@ -15,7 +16,9 @@ public static class EndpointMapping
     {
         app.MapPostApiChat(async (chatRequest, chatCompletionService, httpContext, kernel) =>
         {
-            var chatHistory = chatRequest.ToChatHistory();
+            var chatHistory = await chatRequest
+                                        .ToChatHistory()
+                                        .AddInstructionPrompts();
 
             var promptExecutionSettings = new OpenAIPromptExecutionSettings
             {
@@ -23,8 +26,8 @@ public static class EndpointMapping
             };
 
             await chatCompletionService
-                .GetStreamingChatMessageContentsAsync(chatHistory, promptExecutionSettings, kernel)
-                .StreamToResponseAsync(httpContext.Response);
+                    .GetStreamingChatMessageContentsAsync(chatHistory, promptExecutionSettings, kernel)
+                    .StreamToResponseAsync(httpContext.Response);
         });
     }
 }
