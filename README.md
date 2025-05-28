@@ -1,4 +1,9 @@
-# semantic-kernel-playground
+# flAIvor - Your Personalized AI Cooking Companion
+
+*flAIvor* is an AI-powered recipe assistant designed to help users create personalized recipes, automatically generate shopping lists, and follow step-by-step cooking instructions – all tailored to individual preferences using the power of generative AI.
+
+Built with Microsoft's Semantic Kernel and OpenAI technologies, flAIvor enables a fully dynamic and intelligent cooking experience.
+
 
 ## Local LLM Setup with LM Studio
 
@@ -30,3 +35,4 @@ The docker-compose setup will handle all necessary dependencies and configuratio
 
 After all services started successfully, Open-WebUI can be accessed via `http://localhost:8181`.
 The model with name `dotnetapi` should already be automatically selected.
+

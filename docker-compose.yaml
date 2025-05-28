@@ -10,7 +10,7 @@ services:
     volumes:
       - open-webui-data:/app/backend/data
     networks:
-      - default
+      - flaivor_network
     depends_on:
       - plugin-api
 
@@ -21,32 +21,57 @@ services:
       dockerfile: Dockerfile
     container_name: plugin-api
     environment:
-      LMStudioUrl: ${LMStudioUrl}
+      LMStudioUrl: ${LMSTUDIO_URL}
     ports:
       - "11434:11434"
     networks:
-      - default
+      - flaivor_network
     depends_on:
-      - service-db
+      - mongodb
 
 
-  service-db:
-    container_name: service-db
-    image: postgres:16
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "5432:5432"
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./mongodb/initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongodb-data:/data/db/
+      - mongodb-log:/var/log/mongodb/
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27017:27017"
     networks:
-      - default
+      - flaivor_network
+
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_SERVER: 'mongodb'
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD}
+    ports:
+      - 8182:8081
+    networks:
+      - flaivor_network
+    depends_on:
+      - mongodb
+
 
 volumes:
   open-webui-data:
+  mongodb-data:
+  mongodb-log:
 
 networks:
-  default:
+  flaivor_network:
     driver: bridge
+    name: flaivor-network
