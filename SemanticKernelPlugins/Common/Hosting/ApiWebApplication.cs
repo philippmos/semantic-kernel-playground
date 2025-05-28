@@ -1,4 +1,4 @@
-﻿namespace SemanticKernelPlugins.Hosting;
+namespace SemanticKernelPlugins.Common.Hosting;
 
 public static class ApiWebApplication
 {

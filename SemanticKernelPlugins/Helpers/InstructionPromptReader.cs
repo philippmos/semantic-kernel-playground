@@ -1,4 +1,4 @@
-﻿namespace SemanticKernelPlugins.Helpers;
+namespace SemanticKernelPlugins.Helpers;
 
 public static class InstructionPromptReader
 {

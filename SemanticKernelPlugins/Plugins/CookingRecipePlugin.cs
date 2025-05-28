@@ -1,11 +1,11 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using Microsoft.SemanticKernel;
 using SemanticKernelPlugins.Services.Interfaces;
 
 namespace SemanticKernelPlugins.Plugins;
 
 public class CookingRecipePlugin(IRecipeService recipeService)
-{ 
+{
     [KernelFunction]
     [Description("Returns a cooking recipe that matches the specified difficulty level. Difficulty can be Easy, Medium, Hard, or Extreme.")]
     public string GetCookingRecipeByGivenDifficulty(

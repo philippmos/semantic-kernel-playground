@@ -1,4 +1,4 @@
-﻿using SemanticKernelPlugins.Models;
+using SemanticKernelPlugins.Models;
 
 namespace SemanticKernelPlugins.Services.Interfaces;
 

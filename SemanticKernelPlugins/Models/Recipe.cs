@@ -1,5 +1,5 @@
-﻿using SemanticKernelPlugins.Models.Enums;
 using System.Text;
+using SemanticKernelPlugins.Models.Enums;
 
 namespace SemanticKernelPlugins.Models;
 
@@ -19,7 +19,7 @@ public class Recipe
         stringBuilder.AppendLine($"**Difficulty:** {Difficulty}");
         stringBuilder.AppendLine("**Ingredients:**");
 
-        foreach(var ingredient in Ingredients)
+        foreach (var ingredient in Ingredients)
         {
             stringBuilder.AppendLine($"- {ingredient}");
         }

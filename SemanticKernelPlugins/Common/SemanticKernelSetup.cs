@@ -1,8 +1,8 @@
-﻿using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel;
 using OllamaApiFacade.Extensions;
 using SemanticKernelPlugins.Plugins;
 
-namespace SemanticKernelPlugins;
+namespace SemanticKernelPlugins.Common;
 
 public static class SemanticKernelSetup
 {
@@ -16,7 +16,7 @@ public static class SemanticKernelSetup
             .AddLmStudio(endpoint: configuration["LmStudioUrl"] ?? throw new Exception("LmStudioUrl is empty"))
             .AddPlugins();
 
-        if(environment.IsDevelopment())
+        if (environment.IsDevelopment())
         {
             services.AddProxyForDebug();
         }

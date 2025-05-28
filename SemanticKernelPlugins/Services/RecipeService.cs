@@ -1,4 +1,4 @@
-﻿using SemanticKernelPlugins.Models;
+using SemanticKernelPlugins.Models;
 using SemanticKernelPlugins.Models.Enums;
 using SemanticKernelPlugins.Services.Interfaces;
 
@@ -12,7 +12,7 @@ public class RecipeService : IRecipeService
 
         _ = await Task.FromResult(Enum.TryParse(difficulty, out difficultyEnum));
 
-        return new ()
+        return new()
         {
             Id = new Guid(),
             Name = $"{difficulty}: Spanischer Erdbeereintopf mit Kohlrabi",

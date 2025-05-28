@@ -1,4 +1,4 @@
-﻿namespace SemanticKernelPlugins.Models.Enums;
+namespace SemanticKernelPlugins.Models.Enums;
 
 public enum Difficulty
 {

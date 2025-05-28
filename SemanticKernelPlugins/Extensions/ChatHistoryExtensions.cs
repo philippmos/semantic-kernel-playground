@@ -1,4 +1,4 @@
-﻿using Microsoft.SemanticKernel.ChatCompletion;
+using Microsoft.SemanticKernel.ChatCompletion;
 using SemanticKernelPlugins.Helpers;
 
 namespace SemanticKernelPlugins.Extensions;

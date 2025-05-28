@@ -1,5 +1,5 @@
+using SemanticKernelPlugins.Common.Hosting;
 using SemanticKernelPlugins.Endpoints;
-using SemanticKernelPlugins.Hosting;
 
 var builder = ApiWebApplication.CreateBuilder(args);
 

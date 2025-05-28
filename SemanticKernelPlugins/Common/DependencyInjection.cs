@@ -1,7 +1,7 @@
-﻿using SemanticKernelPlugins.Services;
+using SemanticKernelPlugins.Services;
 using SemanticKernelPlugins.Services.Interfaces;
 
-namespace SemanticKernelPlugins;
+namespace SemanticKernelPlugins.Common;
 
 public static class DependencyInjection
 {
