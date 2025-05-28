@@ -1,4 +1,4 @@
-namespace SemanticKernelPlugins.Endpoints;
+namespace TAIste.Plugins.Endpoints;
 
 public static class EndpointMapping
 {

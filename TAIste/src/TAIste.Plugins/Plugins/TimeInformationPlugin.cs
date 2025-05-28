@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Microsoft.SemanticKernel;
 
-namespace SemanticKernelPlugins.Plugins;
+namespace TAIste.Plugins.Plugins;
 
 public class TimeInformationPlugin
 {

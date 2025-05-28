@@ -1,4 +1,4 @@
-namespace SemanticKernelPlugins.Helpers;
+namespace TAIste.Plugins.Helpers;
 
 public static class InstructionPromptReader
 {

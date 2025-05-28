@@ -1,7 +1,7 @@
 using Microsoft.SemanticKernel.ChatCompletion;
-using SemanticKernelPlugins.Helpers;
+using TAIste.Plugins.Helpers;
 
-namespace SemanticKernelPlugins.Extensions;
+namespace TAIste.Plugins.Extensions;
 
 public static class ChatHistoryExtensions
 {

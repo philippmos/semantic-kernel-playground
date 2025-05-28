@@ -1,8 +1,8 @@
 using Microsoft.SemanticKernel;
 using OllamaApiFacade.Extensions;
-using SemanticKernelPlugins.Plugins;
+using TAIste.Plugins.Plugins;
 
-namespace SemanticKernelPlugins.Common;
+namespace TAIste.Plugins.Common;
 
 public static class SemanticKernelSetup
 {

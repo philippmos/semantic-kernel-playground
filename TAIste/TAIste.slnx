@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TAIste.Plugins/TAIste.Plugins.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>

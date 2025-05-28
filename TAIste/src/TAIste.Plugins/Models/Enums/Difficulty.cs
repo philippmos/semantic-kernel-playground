@@ -1,4 +1,4 @@
-namespace SemanticKernelPlugins.Models.Enums;
+namespace TAIste.Plugins.Models.Enums;
 
 public enum Difficulty
 {

@@ -1,8 +1,8 @@
-# flAIvor - Your Personalized AI Cooking Companion
+# tAIste - Your Personalized AI Cooking Companion
 
-*flAIvor* is an AI-powered recipe assistant designed to help users create personalized recipes, automatically generate shopping lists, and follow step-by-step cooking instructions – all tailored to individual preferences using the power of generative AI.
+*tAIste* is an AI-powered recipe assistant designed to help users create personalized recipes, automatically generate shopping lists, and follow step-by-step cooking instructions – all tailored to individual preferences using the power of generative AI.
 
-Built with Microsoft's Semantic Kernel and OpenAI technologies, flAIvor enables a fully dynamic and intelligent cooking experience.
+Built with Microsoft's Semantic Kernel and OpenAI technologies, tAIste enables a fully dynamic and intelligent cooking experience.
 
 
 ## Local LLM Setup with LM Studio

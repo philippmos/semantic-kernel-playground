@@ -1,6 +1,6 @@
-using SemanticKernelPlugins.Models;
+using TAIste.Plugins.Models;
 
-namespace SemanticKernelPlugins.Services.Interfaces;
+namespace TAIste.Plugins.Services.Interfaces;
 
 public interface IRecipeService
 {

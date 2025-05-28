@@ -1,8 +1,8 @@
-using SemanticKernelPlugins.Models;
-using SemanticKernelPlugins.Models.Enums;
-using SemanticKernelPlugins.Services.Interfaces;
+using TAIste.Plugins.Models;
+using TAIste.Plugins.Models.Enums;
+using TAIste.Plugins.Services.Interfaces;
 
-namespace SemanticKernelPlugins.Services;
+namespace TAIste.Plugins.Services;
 
 public class RecipeService : IRecipeService
 {

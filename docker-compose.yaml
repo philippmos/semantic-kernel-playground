@@ -17,7 +17,7 @@ services:
 
   plugin-api:
     build:
-      context: ./SemanticKernelPlugins
+      context: ./TAIste/src/TAIste.Plugins
       dockerfile: Dockerfile
     container_name: plugin-api
     environment:

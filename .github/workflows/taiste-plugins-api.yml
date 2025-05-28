@@ -1,4 +1,4 @@
-name: Semantic Kernel Plugins CI
+name: TAIste Plugins CI
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
 
     defaults:
         run:
-            working-directory: SemanticKernelPlugins
+            working-directory: TAIste/src/TAIste.Plugins
 
     runs-on: ubuntu-latest
 

@@ -1,7 +1,7 @@
 using System.Text;
-using SemanticKernelPlugins.Models.Enums;
+using TAIste.Plugins.Models.Enums;
 
-namespace SemanticKernelPlugins.Models;
+namespace TAIste.Plugins.Models;
 
 public class Recipe
 {

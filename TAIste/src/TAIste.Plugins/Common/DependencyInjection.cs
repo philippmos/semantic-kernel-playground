@@ -1,7 +1,7 @@
-using SemanticKernelPlugins.Services;
-using SemanticKernelPlugins.Services.Interfaces;
+using TAIste.Plugins.Services;
+using TAIste.Plugins.Services.Interfaces;
 
-namespace SemanticKernelPlugins.Common;
+namespace TAIste.Plugins.Common;
 
 public static class DependencyInjection
 {

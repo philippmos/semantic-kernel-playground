@@ -1,9 +1,9 @@
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using OllamaApiFacade.Extensions;
-using SemanticKernelPlugins.Extensions;
+using TAIste.Plugins.Extensions;
 
-namespace SemanticKernelPlugins.Endpoints;
+namespace TAIste.Plugins.Endpoints;
 
 public static class OpenAiEndpoints
 {

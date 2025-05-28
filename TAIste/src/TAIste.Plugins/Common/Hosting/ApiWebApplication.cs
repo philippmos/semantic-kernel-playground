@@ -1,4 +1,6 @@
-namespace SemanticKernelPlugins.Common.Hosting;
+using TAIste.Plugins.Common;
+
+namespace TAIste.Plugins.Common.Hosting;
 
 public static class ApiWebApplication
 {

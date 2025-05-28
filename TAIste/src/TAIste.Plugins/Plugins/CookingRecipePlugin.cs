@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using Microsoft.SemanticKernel;
-using SemanticKernelPlugins.Services.Interfaces;
+using TAIste.Plugins.Services.Interfaces;
 
-namespace SemanticKernelPlugins.Plugins;
+namespace TAIste.Plugins.Plugins;
 
 public class CookingRecipePlugin(IRecipeService recipeService)
 {
