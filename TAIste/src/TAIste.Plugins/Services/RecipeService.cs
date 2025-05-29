@@ -1,23 +1,27 @@
+using MongoDB.Driver;
 using TAIste.Plugins.Models;
-using TAIste.Plugins.Models.Enums;
 using TAIste.Plugins.Services.Interfaces;
 
 namespace TAIste.Plugins.Services;
 
 public class RecipeService : IRecipeService
 {
-    public async Task<Recipe> GetRecipeByDifficultyAsync(string difficulty)
+    private readonly IMongoCollection<Recipe> _collection;
+
+    public RecipeService(IConfiguration configuration)
     {
-        var difficultyEnum = Difficulty.Easy;
+        var connectionString = configuration.GetConnectionString("MongoDb")
+                ?? configuration["MongoDb"]
+                ?? throw new Exception("MongoDb ConnectionString missing");
 
-        _ = await Task.FromResult(Enum.TryParse(difficulty, out difficultyEnum));
+        _collection = new MongoClient(connectionString)
+                                .GetDatabase("taiste")
+                                .GetCollection<Recipe>("cooking_recipes");
+    }
 
-        return new()
-        {
-            Id = new Guid(),
-            Name = $"{difficulty}: Spanischer Erdbeereintopf mit Kohlrabi",
-            Difficulty = difficultyEnum,
-            Ingredients = ["Tomatoes", "Olive Oil", "Garlic", "Basil"]
-        };
+    public async Task<IEnumerable<Recipe>> GetAllRecipes()
+    {
+        var recipes = await _collection.Find(_ => true).ToListAsync();
+        return recipes;
     }
 }

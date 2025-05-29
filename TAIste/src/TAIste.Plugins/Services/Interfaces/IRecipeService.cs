@@ -4,5 +4,5 @@ namespace TAIste.Plugins.Services.Interfaces;
 
 public interface IRecipeService
 {
-    Task<Recipe> GetRecipeByDifficultyAsync(string difficulty);
+    Task<IEnumerable<Recipe>> GetAllRecipes();
 }

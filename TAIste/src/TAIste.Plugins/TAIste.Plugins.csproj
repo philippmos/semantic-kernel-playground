@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.53.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="MongoDB.Driver" Version="3.4.0" />
     <PackageReference Include="OllamaApiFacade" Version="1.1.2" />
   </ItemGroup>
 

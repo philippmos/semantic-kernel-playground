@@ -11,13 +11,13 @@ public class CookingRecipePlugin(IRecipeService recipeService)
     public string GetCookingRecipeByGivenDifficulty(
         [Description("The difficulty level of the recipe to retrieve. Valid values: Easy, Medium, Hard, Extreme.")] string difficulty)
     {
-        var recipe = recipeService.GetRecipeByDifficultyAsync(difficulty).Result;
+        var recipes = recipeService.GetAllRecipes().Result;
 
-        if (recipe is null)
+        if (recipes is null || !recipes.Any())
         {
             return $"We could not find a cooking recipe that matches your difficulty {difficulty}.";
         }
 
-        return recipe.ToString();
+        return recipes.FirstOrDefault()?.ToString() ?? "Could not find any cooking recipe";
     }
 }
